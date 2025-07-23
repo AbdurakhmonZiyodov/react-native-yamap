@@ -100,6 +100,13 @@ class YamapMarkerManager internal constructor() : ViewGroupManager<YamapMarker>(
         super.removeViewAt(parent, index)
     }
 
+    // === YANGI QO'SHIMCHA ===
+    override fun onAfterUpdateTransaction(view: YamapMarker) {
+        super.onAfterUpdateTransaction(view)
+        view.refreshChildren() // Har safar prop yoki children o'zgarsa, marker view-ni yangilash
+    }
+    // === YANGI QO'SHIMCHA TUGADI ===
+
     override fun receiveCommand(
         view: YamapMarker,
         commandType: String,
