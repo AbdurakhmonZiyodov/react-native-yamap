@@ -54,18 +54,14 @@ var Marker = /** @class */ (function (_super) {
         }
     };
     Marker.getDerivedStateFromProps = function (nextProps, prevState) {
-        if (react_native_1.Platform.OS === 'ios') {
+        // Always toggle recreateKey if children changed, on both platforms
+        if (nextProps.children !== prevState.children) {
             return {
                 children: nextProps.children,
-                recreateKey: nextProps.children === prevState.children
-                    ? prevState.recreateKey
-                    : !prevState.recreateKey
+                recreateKey: !prevState.recreateKey
             };
         }
-        return {
-            children: nextProps.children,
-            recreateKey: Boolean(nextProps.children)
-        };
+        return null;
     };
     Marker.prototype.resolveImageUri = function (img) {
         return img ? (0, resolveAssetSource_1.default)(img).uri : '';

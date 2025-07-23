@@ -39,7 +39,7 @@ export enum SearchTypesSnippets {
   /**
    * Companies.
    */
-  YMKSearchTypeBiz = 0b01 << 32,
+  YMKSearchTypeBiz = 0b01 << 0,
   /**
    * Mass transit routes.
    */

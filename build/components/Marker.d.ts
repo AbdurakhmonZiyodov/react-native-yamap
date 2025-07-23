@@ -29,7 +29,7 @@ export declare class Marker extends React.Component<MarkerProps, State> {
         children: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined;
     };
     private getCommand;
-    static getDerivedStateFromProps(nextProps: MarkerProps, prevState: State): Partial<State>;
+    static getDerivedStateFromProps(nextProps: MarkerProps, prevState: State): Partial<State | null>;
     private resolveImageUri;
     private getProps;
     animatedMoveTo(coords: Point, duration: number): void;

@@ -42,7 +42,7 @@ export class Marker extends React.Component<MarkerProps, State> {
     }
   }
 
-  static getDerivedStateFromProps(nextProps: MarkerProps, prevState: State): Partial<State> {
+  static getDerivedStateFromProps(nextProps: MarkerProps, prevState: State): Partial<State | null> {
     // Always toggle recreateKey if children changed, on both platforms
     if (nextProps.children !== prevState.children) {
       return {
