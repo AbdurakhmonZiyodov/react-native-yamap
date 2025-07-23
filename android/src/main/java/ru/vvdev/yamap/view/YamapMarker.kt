@@ -212,4 +212,9 @@ class YamapMarker(context: Context?) : ReactViewGroup(context), MapObjectTapList
 
         return handled
     }
+
+    // Add this method to force refresh marker icon
+    fun refreshChildren() {
+        updateMarker()
+    }
 }
