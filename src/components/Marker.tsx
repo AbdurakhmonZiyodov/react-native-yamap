@@ -43,20 +43,14 @@ export class Marker extends React.Component<MarkerProps, State> {
   }
 
   static getDerivedStateFromProps(nextProps: MarkerProps, prevState: State): Partial<State> {
-    if (Platform.OS === 'ios') {
+    // Always toggle recreateKey if children changed, on both platforms
+    if (nextProps.children !== prevState.children) {
       return {
         children: nextProps.children,
-        recreateKey:
-          nextProps.children === prevState.children
-            ? prevState.recreateKey
-            : !prevState.recreateKey
+        recreateKey: !prevState.recreateKey
       };
     }
-
-    return {
-      children: nextProps.children,
-      recreateKey: Boolean(nextProps.children)
-    };
+    return null;
   }
 
   private resolveImageUri(img?: ImageSourcePropType) {
